@@ -43,3 +43,63 @@
 [2024-12-16 19:10:16,854: INFO: common: yaml file: params.yaml loaded successfully]
 [2024-12-16 19:10:16,855: INFO: common: created directory at: artifacts]
 [2024-12-16 19:10:16,855: INFO: common: created directory at: artifacts/model_trainer]
+[2024-12-16 20:27:41,787: INFO: config: PyTorch version 2.5.1 available.]
+[2024-12-16 20:30:03,585: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-16 20:30:03,588: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-16 20:30:03,590: INFO: common: created directory at: artifacts]
+[2024-12-16 20:30:03,592: INFO: common: created directory at: artifacts/model_evaluation]
+[2024-12-16 20:40:06,817: INFO: rouge_scorer: Using default tokenizer.]
+[2024-12-16 21:13:42,741: INFO: server: Started server process [57128]]
+[2024-12-16 21:13:42,741: INFO: on: Waiting for application startup.]
+[2024-12-16 21:13:42,741: INFO: on: Application startup complete.]
+[2024-12-16 21:13:42,742: INFO: server: Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)]
+[2024-12-16 21:14:53,438: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-12-16 21:14:53,442: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-12-16 21:14:53,442: INFO: common: created directory at: artifacts]
+[2024-12-16 21:14:53,442: INFO: common: created directory at: artifacts/model_evaluation]
+[2024-12-16 21:14:53,443: ERROR: h11_impl: Exception in ASGI application
+]
+Traceback (most recent call last):
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 404, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 78, in __call__
+    return await self.app(scope, receive, send)
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/fastapi/applications.py", line 269, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/starlette/applications.py", line 124, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/starlette/exceptions.py", line 93, in __call__
+    raise exc
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/starlette/exceptions.py", line 82, in __call__
+    await self.app(scope, receive, sender)
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 21, in __call__
+    raise e
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/starlette/routing.py", line 670, in __call__
+    await route.handle(scope, receive, send)
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/starlette/routing.py", line 266, in handle
+    await self.app(scope, receive, send)
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/starlette/routing.py", line 65, in app
+    response = await func(request)
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/fastapi/routing.py", line 227, in app
+    raw_response = await run_endpoint_function(
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/venv/lib/python3.10/site-packages/fastapi/routing.py", line 160, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/app.py", line 41, in predict_route
+    raise e
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/app.py", line 37, in predict_route
+    obj = PredictionPipeline()
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/src/textSummarizer/pipeline/prediction_pipeline.py", line 8, in __init__
+    self.config = ConfigurationManager().get_model_evaluation_config()
+  File "/Users/sathvik/Desktop/Projects/Finetuned-text-summarizer/src/textSummarizer/config/configuration.py", line 69, in get_model_evaluation_config
+    model_evaluation_config = ModelEvaluationConfig(
+TypeError: ModelEvaluationConfig.__init__() got an unexpected keyword argument 'tokenizer_path'
+[2024-12-16 21:15:35,236: INFO: server: Shutting down]
+[2024-12-16 21:15:35,340: INFO: on: Waiting for application shutdown.]
+[2024-12-16 21:15:35,341: INFO: on: Application shutdown complete.]
+[2024-12-16 21:15:35,341: INFO: server: Finished server process [57128]]
